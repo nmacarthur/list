@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { supabase } from '../supabaseClient';
-  import listStore from '../store/list';
-  import addListItemToDB from '../actions/add-item-to-db';
-  import addItem from '../store/add-item';
-  import updateItem from '../actions/update-item';
+  import { supabase } from '../../supabaseClient';
+  import listStore from '../../store/list';
+  import addListItemToDB from '../../actions/add-item-to-db';
+  import addItem from '../../store/add-item';
+  import updateItem from '../../actions/update-item';
 
-  import ListItem from './list-item';
+  import ListItem from '../list-item';
 
   let list;
   let name = '';
