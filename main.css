@@ -1,0 +1,39 @@
+:root {
+	--bg-colour: #D3D0CB;
+    --primary-colour: #2E5266;
+    --secondary-colour: #6E8898;
+
+    --bg-colour--dark-scheme: #2E5266;
+    --primary-colour--dark-scheme: #D3D0CB;
+    --secondary-colour--dark-scheme: #6E8898;
+	--font-family: 'Helvetica';
+
+    --text-colour: var(--primary-colour);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+    padding: 0;
+	background-color: var(--bg-colour);
+	font-family: var(--font-family);
+	-webkit-app-region: drag;
+}
+
+body, #app {
+    display:grid;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-colour: var(--bg-colour--dark-scheme);
+        --primary-colour: var(--primary-colour--dark-scheme);
+        --secondary-colour: var(--secondary-colour--dark-scheme);
+    }
+}
+
