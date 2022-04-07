@@ -1,4 +1,5 @@
 <script lang="ts">
+    const url = import.meta.env.VITE_SVELTE_APP_URL;
     import { supabase } from "../../supabaseClient"
   
     let loading = false
@@ -7,7 +8,7 @@
     const handleLogin = async () => {
       try {
         loading = true
-        const { error } = await supabase.auth.signIn({ email })
+        const { error } = await supabase.auth.signIn({ email }, { redirectTo: import.meta.env.VITE_SVELTE_APP_URL})
         if (error) throw error
         alert('Check your email for the login link!')
       } catch (error) {
