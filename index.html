@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1'" />
+    <meta name="theme-color" content="#2E5266" media="(prefers-color-scheme:dark)" />
+    <meta name="theme-color" content="#D3D0CB" />
+    <link rel="apple-touch-icon" href="./media/icon.png" />
+	<link rel="stylesheet" href="src/main.css" />
+</head>
+<body>
+    <div class="ui">
+        <input id="new-item" placeholder="Add list item..." class="new-item" />
+        <lil-button id="btn--add" colour="lightSkyBlue">
+            Add
+        </lil-button>
+    </div>
+    <lil-stack id="list" class="list">
+        
+    </lil-stack>
+    <script type="module" src="./src/index.js"></script>
+    <script type="module" src="./src/components/index.js"></script>
+    <script>
+        navigator.serviceWorker.register('./service-worker.js', {});
+    </script>
+</body>
+</html>
