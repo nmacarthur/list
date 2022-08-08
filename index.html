@@ -11,12 +11,14 @@
 	<link rel="stylesheet" href="src/main.css" />
 </head>
 <body>
-    <div class="ui">
-        <input id="new-item" placeholder="Add list item..." class="new-item" />
-        <lil-button id="btn--add" colour="lightSkyBlue">
-            Add
-        </lil-button>
-    </div>
+    <lil-layer class="ui" colour="lightSkyBlue">
+        <div class="ui-controls">
+            <input id="new-item" placeholder="Add list item..." class="new-item" />
+            <lil-button id="btn--add" colour="lightSkyBlue">
+                Add
+            </lil-button>
+        </div>
+    </lil-layer>
     <lil-stack id="list" class="list">
         
     </lil-stack>

@@ -13,7 +13,7 @@ export default class Layer extends LitElement {
 
     static styles = css`
         .layer {
-            display: inline-block;
+            display: block;
             position: relative;
             padding: 0.75rem;
             border: 2px solid var(--layer-colour, #000000);

@@ -7,9 +7,12 @@ const listEl = getById('list');
 
 function prepareListItemDOM(item) {
     const el = document.createElement('lil-layer');
+    const elDiv = document.createElement('div');
     el.setAttribute('colour', 'lightSkyBlue')
-    item.complete && el.setAttribute('complete');
-    el.innerHTML = item.title;
+    el.setAttribute('complete', true);
+    elDiv.setAttribute('class', 'list-item');
+    elDiv.innerText = item.title;
+    el.appendChild(elDiv);
     return el;
 }
 

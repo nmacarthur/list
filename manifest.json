@@ -1,6 +1,6 @@
 {
-    "short_name": "Write",
-    "name": "Write",
+    "short_name": "List",
+    "name": "List",
     "background_color": "#D3D0CB",
     "theme_color": "#D3D0CB",
     "start_url": "/",
