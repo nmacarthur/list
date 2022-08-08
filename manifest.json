@@ -1,8 +1,8 @@
 {
     "short_name": "List",
     "name": "List",
-    "background_color": "#D3D0CB",
-    "theme_color": "#D3D0CB",
+    "background_color": "#efefef",
+    "theme_color": "#efefef",
     "start_url": "/",
     "display_override": ["window-control-overlay"],
     "display": "standalone",
