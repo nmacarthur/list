@@ -11,19 +11,18 @@
 	<link rel="stylesheet" href="src/main.css" />
 </head>
 <body>
-    <lil-layer class="ui" colour="lightSkyBlue" no-padding>
+    <div class="ui layer">
         <div class="ui-controls">
             <input id="new-item" placeholder="Add list item..." class="new-item" />
             <button id="btn--add" class="btn">
                 Add
             </button>
         </div>
-    </lil-layer>
-    <lil-stack id="list" class="list">
+    </div>
+    <div id="list" class="list">
         
-    </lil-stack>
+    </div>
     <script type="module" src="./src/index.js"></script>
-    <script type="module" src="./src/components/index.js"></script>
     <script>
         navigator.serviceWorker.register('./service-worker.js', {});
     </script>

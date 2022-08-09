@@ -9,6 +9,9 @@
     --font-family: 'Helvetica';
 
     --text-colour: var(--primary-colour);
+    --blue: hsl(204, 81%, 74%);
+    --blue-shade: hsl(204, 81%, 74%, 60%);
+    
 }
 
 * {
@@ -34,7 +37,7 @@ body {
 .list {
     max-width:600px;
     display: grid;
-    grid-auto-rows: 2rem;
+    grid-auto-rows: 3rem;
     grid-row: 1;
     justify-self: center;
     width: 100%;
@@ -71,6 +74,7 @@ input::placeholder {
     border-right: none;
     margin-top: -2px;
     margin-bottom: -2px;
+    margin-right: -2px;
     border-radius: 8px;
     cursor: pointer;
     box-shadow: none;
@@ -91,6 +95,58 @@ input::placeholder {
 
 .ui-controls {
     display: flex;
+}
+
+
+.list {
+    grid-gap: 1rem;
+}
+
+.list-item {
+    padding: 0.75rem;
+}
+
+
+.layer, .list-item {
+    display: block;
+    position: relative;
+    border: 2px solid var(--blue, #000000);
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.layer:after, .list-item:after {
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 10px;
+    left: 10px;
+    border-radius: 8px;
+    z-index: -1;
+    background: repeating-linear-gradient(
+        -45deg, 
+        var(--blue-shade, rgba(0,0,0,0.5)) 0px, 
+        var(--blue-shade, rgba(0,0,0,0.05)) 4px, 
+        var(--blue, rgb(0,0,0)) 4px, 
+        var(--blue, rgb(0,0,0)) 6px
+    );
+}
+
+.layer--active {
+    transform: translate(5px, 5px);
+}
+
+.layer--active:after {
+    transform: translate(-5px, -5px);
+}
+
+.list-item[done] {
+    opacity: 0.25;
+}
+
+.list-item[done]:after {
+    transform: translate(-10px, -10px);
 }
 
 @media (prefers-color-scheme: dark) {

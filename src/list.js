@@ -1,16 +1,18 @@
-let list = [];
-
-const getList = () => [...list];
-const addItem = async (item) => list = [...list, item];
-const removeItem = ({ id }) => list.filter(item => item.id !== id);
-const getItem = (id)  => list.find(item => item.id === id);
-const getItemIndex = (id) => list.findIndex(item => item.id === id);
-const toggleItem = ({ id }) => {
+const getList = () => JSON.parse(localStorage.getItem('list')) || [];
+const setList = list => localStorage.setItem('list', JSON.stringify(list))
+const addItem = async (item) => setList([...getList(), item]);
+const removeItem = (id) => setList(getList().filter(item => item.title !== id));
+const getItem = (id)  => getList().find(item => item.title === id);
+const getItemIndex = (id) => getList().findIndex(item => item.title === id);
+const toggleItem = (id) => {
     const item = getItem(id);
     const index = getItemIndex(id);
     const updatedItem = { ...item, complete: !item.complete }
 
-    return list.splice(index, 1, updatedItem);
+    let newArray = [...getList()];
+    newArray.splice(index, 1, updatedItem)
+
+    setList(newArray);
 }
 
 export {
