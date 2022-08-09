@@ -4,11 +4,9 @@ import { styleMap } from 'https://cdn.skypack.dev/lit/directives/style-map.js';
 import { COLOURS, SHADES, KEYS as COLOUR_KEYS } from '../../constants/colours.js';
 
 export default class Layer extends LitElement {
-    static get properties () {
-        return {
-            colour: { type: String },
-            style: {},
-        }
+    static properties = {
+        colour: { type: String },
+        noPadding: { type: Boolean, attribute: 'no-padding' }
     }
 
     static styles = css`
@@ -57,7 +55,9 @@ export default class Layer extends LitElement {
     render() {
         const colour = COLOURS[this.colour];
         const shade = SHADES[this.colour];
-        return html`<div class="layer" style=${styleMap({ '--layer-colour': colour, '--layer-shade': shade })}><slot></slot></div>`;
+        const padding = !this.noPadding ? '0.75rem' : 0;
+        console.log(this.noPadding);
+        return html`<div class="layer" style=${styleMap({ '--layer-colour': colour, '--layer-shade': shade, padding })}><slot></slot></div>`;
     }
 }
 
