@@ -6,7 +6,7 @@
     --bg-colour--dark-scheme: #2E5266;
     --primary-colour--dark-scheme: #D3D0CB;
     --secondary-colour--dark-scheme: #6E8898;
-    --font-family: 'Helvetica';
+    --font-family: 'Courier';
 
     --text-colour: var(--primary-colour);
     --blue: hsl(204, 81%, 74%);
@@ -54,6 +54,10 @@ input {
     font-weight: bold;
     font-family: var(--font-family);
     opacity: 0.6;
+}
+
+button {
+    font-family: var(--font-family);
 }
 
 input:focus {
