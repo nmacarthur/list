@@ -92,6 +92,7 @@ input::placeholder {
     max-width: 600px;
     margin:auto;
     bottom: 16px;
+    margin-top: 16px;
     position:relative;
     grid-row: 2;
 }
@@ -104,6 +105,7 @@ input::placeholder {
 
 .list {
     grid-gap: 1rem;
+    overflow: scroll;
 }
 
 .list-item {
