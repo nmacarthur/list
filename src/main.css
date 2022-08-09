@@ -65,7 +65,7 @@ input::placeholder {
     color: var(--colour--secondary);
 }
 
-.btn {
+.btn, .list-item__delete {
     background-color: transparent;
     color: inherit;
     font-weight: light;
@@ -75,7 +75,7 @@ input::placeholder {
     margin-top: -2px;
     margin-bottom: -2px;
     margin-right: -2px;
-    border-radius: 8px;
+    border-radius: 0 8px 8px 0;
     cursor: pointer;
     box-shadow: none;
     padding: 0.75rem;
@@ -104,6 +104,16 @@ input::placeholder {
 
 .list-item {
     padding: 0.75rem;
+}
+
+
+.list-item__delete { 
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3rem;
+    border-radius: 0 8px 8px 0;
+    height: calc(100% + 4px);
 }
 
 
