@@ -58,6 +58,7 @@ input {
 
 button {
     font-family: var(--font-family);
+    color: var(--text-colour)
 }
 
 input:focus {
