@@ -72,7 +72,6 @@ input::placeholder {
 
 .btn, .list-item__delete {
     background-color: transparent;
-    color: inherit;
     font-weight: light;
     border: none;
     border: 2px solid hsl(204, 81%, 74%);
