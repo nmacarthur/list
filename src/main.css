@@ -110,6 +110,7 @@ input::placeholder {
 
 .list-item {
     padding: 0.75rem;
+    color: var(--text-colour);
 }
 
 
