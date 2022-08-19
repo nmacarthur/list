@@ -10,10 +10,13 @@ listEl.addEventListener('click', handleListClick);
 
 function prepareListItemDOM(item) {
     const el = document.createElement('div');
+    const innerSpan = document.createElement('span');
     el.setAttribute('class', 'list-item')
     el.setAttribute('id', item.title);
     item.complete && el.setAttribute('done', '');
-    el.innerText = item.title;
+    innerSpan.innerText = item.title;
+    innerSpan.setAttribute('title', item.title);
+    el.appendChild(innerSpan);
     const button = deleteButton();
     el.appendChild(button);
     return el;
