@@ -139,6 +139,7 @@ input::placeholder {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    pointer-events: none;
 }
 
 .layer:after, .list-item:after {
