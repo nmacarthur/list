@@ -1,5 +1,5 @@
 import { getById } from './utils.js';
-import { addItem, getList, toggleItem, removeItem } from './list.js';
+import { addItem, getList, toggleItem, removeItem, moveItem, getItem, getItemIndex } from './list.js';
 import valueContainer from './value-container.js';
 
 const [ getNewItemValue, setNewItemValue ] = valueContainer(getById('new-item'));
@@ -7,15 +7,15 @@ const listEl = getById('list');
 
 listEl.addEventListener('click', handleListClick);
 
-
-function prepareListItemDOM(item) {
+function prepareListItemDOM({ title, complete }) {
     const el = document.createElement('div');
     const innerSpan = document.createElement('span');
     el.setAttribute('class', 'list-item')
-    el.setAttribute('id', item.title);
-    item.complete && el.setAttribute('done', '');
-    innerSpan.innerText = item.title;
-    innerSpan.setAttribute('title', item.title);
+    el.setAttribute('id', title);
+    el.setAttribute('draggable', true);
+    complete && el.setAttribute('done', '');
+    innerSpan.innerText = title;
+    innerSpan.setAttribute('title', title);
     el.appendChild(innerSpan);
     const button = deleteButton();
     el.appendChild(button);
@@ -46,15 +46,15 @@ async function createNewItem() {
     updateView();
 }
 
-function handleListClick(e) {
-    if (Array.from(e.target.classList).includes('list-item')) {
-        const status = e.target.hasAttribute('done');
-        status ? e.target.removeAttribute('done') : e.target.setAttribute('done', '');
-        toggleItem(e.target.getAttribute('id'));
+function handleListClick({ target }) {
+    if (Array.from(target.classList).includes('list-item')) {
+        const status = target.hasAttribute('done');
+        status ? target.removeAttribute('done') : target.setAttribute('done', '');
+        toggleItem(target.getAttribute('id'));
     }
 
-    if (Array.from(e.target.classList).includes('list-item__delete')) {
-        removeItem(e.target.parentElement.getAttribute('id'));
+    if (Array.from(target.classList).includes('list-item__delete')) {
+        removeItem(target.parentElement.getAttribute('id'));
         updateView();
     }
 }
@@ -65,8 +65,27 @@ function deleteButton() {
     el.innerText = 'x'
     return el;
 }
+
+function handleItemDrag({ target, clientY }) {
+    const { id } = target;
+    if (!id) {
+        return;
+    }
+
+    const a = Array.from(document.querySelectorAll('.list-item')).map(element => {
+        const { height, y } = element.getBoundingClientRect(); 
+        return height + y
+    });
+
+    const newIndex = a.reduce((prev, current, index) => current < clientY ? index : prev, 0)
+    const item = getItem(id);
+    moveItem(item, newIndex);
+    updateView();
+}
+
 export {
     getNewItemValue,
     setNewItemValue,
     createNewItem,
+    handleItemDrag
 };
